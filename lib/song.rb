@@ -25,7 +25,6 @@ class Song
   end
 
   def self.create_by_name(name)
-
     create_name = self.new
     create_name.name = name
     create_name.save
@@ -33,9 +32,7 @@ class Song
   end
 
   def self.find_by_name(name)
-
     self.all.find{|i| i.name == name}
-    
   end
 
   def self.find_or_create_by_name(song)
@@ -65,13 +62,10 @@ class Song
   end
 
   def self.create_from_filename(file)
-     #binding.pry
      splitted_f = file.split(" - ")
      artist_name_2 = splitted_f[0]
      song_name_2 = splitted_f[1].chomp(".mp3")
-     #file has been split up
      file_creation = self.create_by_name(file)
-     #new instance is saved
      file_creation.name = song_name_2
      file_creation.artist_name = artist_name_2
      file_creation
@@ -84,8 +78,4 @@ class Song
 
   end
 
-#song_1 = Song.find_or_create_by_name("songname")
-#song_2 = Song.find_or_create_by_name("songname2")
-#song_3 = Song.find_or_create_by_name("songname3")
-#song_4 = Song.find_or_create_by_name("songname4")
 
